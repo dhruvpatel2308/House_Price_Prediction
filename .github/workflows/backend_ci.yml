@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-
+      
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -22,6 +22,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+
 
   create_pull_request:
     needs: build
@@ -38,7 +39,6 @@ jobs:
           git checkout main_backend
           git pull origin main_backend
           git checkout -b update-branch
-          git push origin update-branch
 
       - name: Debug repository state
         run: |
@@ -53,6 +53,6 @@ jobs:
           commit-message: 'Build successful, creating PR to merge into main'
           title: 'Build successful, merge main_backend into main'
           body: 'Auto-generated pull request to merge main_backend into main after successful build.'
-          head: update-branch
+          head: main_backend
           base: main
           reviewers: dhruvpatel2308
