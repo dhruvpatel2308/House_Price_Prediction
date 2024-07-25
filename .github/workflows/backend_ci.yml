@@ -48,4 +48,4 @@ jobs:
           body: 'Auto-generated pull request to merge main_backend into main after successful build.'
           head: main_backend
           base: main
-          reviewers: dhruvpatel2308
+          reviewers: dhruvpatel2308, Gruhit13
