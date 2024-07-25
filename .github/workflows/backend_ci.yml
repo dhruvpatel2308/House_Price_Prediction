@@ -1,4 +1,4 @@
-name: Backend CI/CD Pipeline
+name: CI/CD Pipeline
 
 on:
   push:
@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-      
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -32,13 +32,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-
-      - name: Ensure branch is up-to-date
-        run: |
-          git fetch origin
-          git checkout main_backend
-          git pull origin main_backend
-          git checkout -b update-branch
 
       - name: Debug repository state
         run: |
