@@ -1,9 +1,9 @@
 name: CI/CD Pipeline
 
 on:
-    push:
-      branches:
-        - main_backend
+  push:
+    branches:
+      - main_backend
 
 jobs:
   build:
@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-      
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -24,7 +24,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run tests
-        runs: |
+        run: |
           pytest
 
   create_pull_request:
@@ -43,6 +43,6 @@ jobs:
           commit-message: 'Build successful, creating PR to merge into main'
           title: 'Build successful, merge main_backend into main'
           body: 'Auto-generated pull request to merge main_backend into main after successful build.'
-          branch: main
+          branch: main_backend
           base: main
-          reviewers: dhruvpatel2308, Gruhit13
+          reviewers: Gruhit13, dhruvpatel2308
