@@ -1,1 +1,48 @@
 name: CI/CD Pipeline
+
+on:
+    push:
+      branches:
+        - main_backend
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.8'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run tests
+        runs: |
+          pytest
+
+  create_pull_request:
+    needs: build
+    runs-on: ubuntu-latest
+    if: success()
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: 'Build successful, creating PR to merge into main'
+          title: 'Build successful, merge main_backend into main'
+          body: 'Auto-generated pull request to merge main_backend into main after successful build.'
+          branch: main
+          base: main
+          reviewers: dhruvpatel2308, Gruhit13
