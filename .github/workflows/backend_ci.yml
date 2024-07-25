@@ -49,3 +49,14 @@ jobs:
           head: main_backend
           base: main
           reviewers: dhruvpatel2308, Gruhit13
+
+      - name: Get Pull Request URL
+        id: get_pr_url
+        run: |
+          PR_URL=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            "https://api.github.com/repos/${{ github.repository }}/pulls" | \
+            jq -r '.[] | select(.head.ref == "main_backend" and .base.ref == "main") | .html_url')
+          echo "PR_URL=${PR_URL}" >> $GITHUB_ENV
+
+      - name: Output Pull Request URL
+        run: echo "The Pull Request URL is ${{ env.PR_URL }}"
