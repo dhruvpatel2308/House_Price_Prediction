@@ -16,9 +16,9 @@ jobs:
         - name: Add Remote
           env: 
             HF: ${{ secrets.HF }}
-          run: git remote add space https://huggingface.co/spaces/gruhit-patel/deployment_app
+          run: git remote add space https://gruhit-patel:$HF@huggingface.co/spaces/gruhit-patel/house_price_prediction
         
         - name: Push to Space
           env: 
             HF: ${{ secrets.HF }}
-          run: git push --force https://huggingface.co/spaces/gruhit-patel/deployment_app main
+          run: git push --force https://gruhit-patel:$HF@huggingface.co/spaces/gruhit-patel/house_price_prediction main
