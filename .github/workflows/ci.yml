@@ -1,8 +1,13 @@
-name: Backend1 CI/CD Pipeline
+name: Create Pull Request
 
 on:
   push:
     branches:
+      - main_backend
+
+jobs:
+  create-pr:
+    runs-on: ubuntu-latest
       - deploy_backend
         
 jobs:
@@ -24,5 +29,3 @@ jobs:
           branch: deploy_backend
           base: main_backend
           #reviewers: dhruvpatel2308, Gruhit13
-
-      
