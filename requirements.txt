@@ -1,0 +1,6 @@
+fastapi
+uvicorn[standard]
+streamlit
+httpx
+numpy
+xgboost==2.0.3
