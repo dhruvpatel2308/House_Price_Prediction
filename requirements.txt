@@ -1,0 +1,4 @@
+fastapi
+uvicorn[standard]
+xgboost==2.0.3
+numpy
