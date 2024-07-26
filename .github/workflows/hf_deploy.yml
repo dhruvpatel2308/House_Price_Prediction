@@ -13,7 +13,7 @@ jobs:
           with:
             fetch-depth: 0
 
-        - name: Add Remote
+        - name: Add Remote hugging face space
           env: 
             HF: ${{ secrets.HF }}
           run: git remote add space https://gruhit-patel:$HF@huggingface.co/spaces/gruhit-patel/house_price_prediction
