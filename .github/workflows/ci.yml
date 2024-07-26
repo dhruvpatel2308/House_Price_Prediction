@@ -8,6 +8,13 @@ on:
 jobs:
   create-pr:
     runs-on: ubuntu-latest
+      - deploy_backend
+        
+jobs:
+
+  create_pull_request:
+    runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -16,12 +23,9 @@ jobs:
         uses: peter-evans/create-pull-request@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: Build successful, creating PR to merge deploy_backend into main_backend
-          title: Build successful, merge deploy_backend into main_backend
-          body: Auto-generated pull request to merge deploy_backend into main_backend after successful build.
+          commit-message: 'Build successful, creating PR to merge into main_backend'
+          title: 'Build successful, merge deploy_backend into main_backend'
+          body: 'Auto-generated pull request to merge deploy_backend into main_backend after successful build.'
           branch: deploy_backend
           base: main_backend
-          reviewers: dhruvpatel2308, Gruhit13
-          signoff: false
-          delete-branch: false
-          draft: false
+          #reviewers: dhruvpatel2308, Gruhit13
