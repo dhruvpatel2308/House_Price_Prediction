@@ -13,17 +13,13 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Extract git commit data
+      
+
+    - name: extrace git commit data
       uses: rlespinasse/git-commit-data-action@v1.x
 
-    - name: Generate unique title and body
-      id: pr-info
-      run: |
-        TIMESTAMP=$(date +'%Y-%m-%d %H:%M:%S')
-        echo "PR_TITLE=Merge branch_to_merge into main_backend_branch on $TIMESTAMP" >> $GITHUB_ENV
-        echo "PR_BODY=Created by GitHub action on $TIMESTAMP" >> $GITHUB_ENV
-
-    - name: Create pull request
-      run: gh pr create -B main_backend -H deploy_backend --title "$PR_TITLE" --body "$PR_BODY"
+  
+    - name: create pull request
+      run: gh pr create -B main_backend -H deploy_backend --title 'Merge branch_to_merge into main_backend_branch' --body 'Created by Github action'
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
