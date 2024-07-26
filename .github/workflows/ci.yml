@@ -23,6 +23,6 @@ jobs:
           body: 'Auto-generated pull request to merge deploy_backend into main_backend after successful build.'
           branch: deploy_backend
           base: main_backend
-          reviewers: dhruvpatel2308, Gruhit13
+          #reviewers: dhruvpatel2308, Gruhit13
 
       
