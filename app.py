@@ -19,7 +19,7 @@ if st.button("Predict"):
     if label_medInc:
         # Send the label to the server
         response = requests.post(
-            "https://brijal08-house-price.hf.space/predict_house_price",  # Replace with your API endpoint
+            "https://gruhit-patel-deployment-app.hf.space/predict_house_price",  # Replace with your API endpoint
             json={'medInc': label_medInc,'houseAge': label_HouseAge,'avgRooms': label_AveRooms,'avgBdrms': label_AveBedrms,'population': label_Population,'avgOccup': label_AveOccup,'latitude': label_Latitude,'longitude': label_Longitude}
         )
 
