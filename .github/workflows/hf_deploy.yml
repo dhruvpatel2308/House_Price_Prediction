@@ -4,7 +4,7 @@ on:
   push:
     branches: [deploy_backend]
 
-    
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -17,9 +17,9 @@ jobs:
         - name: Add Remote hugging face space
           env: 
             HF: ${{ secrets.HF }}
-          run: git remote add space https://gruhit-patel:$HF@huggingface.co/spaces/gruhit-patel/deployment_app
+          run: git remote add space https://dpatel9923:$HF@huggingface.co/spaces/dpatel9923/house_price_prediction
         
         - name: Push to Space
           env: 
             HF: ${{ secrets.HF }}
-          run: git push --force https://gruhit-patel:$HF@huggingface.co/spaces/gruhit-patel/deployment_app main
+          run: git push --force https://dpatel9923:$HF@huggingface.co/spaces/dpatel9923/house_price_prediction main
