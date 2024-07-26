@@ -18,14 +18,7 @@ jobs:
     - name: extrace git commit data
       uses: rlespinasse/git-commit-data-action@v1.x
 
-    #- name: Create pull request
-    #  uses: peter-evans/create-pull-request@v3
-    #  with:
-    #    token: ${{ secrets.GITHUB_TOKEN }}
-    #    base: main
-    #    head: b1
-    #    title: 'Automated PR from main_backend to main'
-    #    body: 'This is an automated pull request created by GitHub Actions.'
+  
     - name: create pull request
       run: gh pr create -B main_backend -H deploy_backend --title 'Merge branch_to_merge into main_backend_branch' --body 'Created by Github action'
       env:
