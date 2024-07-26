@@ -2,7 +2,7 @@ name: LaunchHFBackend
 
 on:
   push:
-    branches: [main_backend]
+    branches: [deploy_backend]
 
 jobs:
   deploy:
