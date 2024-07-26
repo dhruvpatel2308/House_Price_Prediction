@@ -25,4 +25,4 @@ jobs:
         - name: Push to Space
           env: 
             HF: ${{ secrets.HF }}
-          run: git push --force https://dpatel9923:$HF@huggingface.co/spaces/dpatel9923/house_price_prediction main
+          run: git push --force space main
