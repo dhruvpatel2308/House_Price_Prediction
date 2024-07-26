@@ -14,7 +14,7 @@ jobs:
             fetch-depth: 0
         
         - name: check HF
-          run: echo "HF = ${{ secrets.HF }}"
+          run: echo "MY_SECRET_VARIABLE=${{ secrets.HF }}" >> $GITHUB_ENV
 
         - name: Add Remote
           env: 
